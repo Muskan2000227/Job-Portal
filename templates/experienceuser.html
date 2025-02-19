@@ -1,0 +1,80 @@
+
+
+{% extends 'afterlogin.html' %}
+{% block content %}
+{% load static %}
+<div class='container py-5 mb-4'>
+<h4> Add Your Experiences:</h4>
+<div class='row'>
+<div class='col-7 mt-3'>
+
+<form method="post">
+{% csrf_token %} 
+<div class='row justify-content-center'>
+<div class='col-6 mt-3'>
+<label class="fs-6 mb-2"> Company Name*</label>
+<div class="mb-3 input-group">
+<label class='input-group-text'><i class="bi bi-briefcase fg"></i></label>
+<input class='form-control' type="text" name="cpn"  required placeholder="">
+</div>
+</div>
+
+<div class='col-6 mt-3'>
+<label class="fs-6 mb-2"> Job Title*</label>
+<div class="mb-3 input-group">
+<label class='input-group-text'><i class="bi bi-list fg "></i></label>
+<input class='form-control' type="text" name="jt" maxlength="150" required="" 
+placeholder="eg Accountant, Developer" >
+</div>
+</div>
+
+<div class='col-6 mt-3'>
+<label class="fs-6 mb-2"> Starting Period*</label>
+<div class="mb-3 input-group">
+<label class='input-group-text'><i class="bi bi-calendar fg"></i></label>
+<input class='form-control' type="date" name="sp"  required="" >
+</div>
+</div>
+
+<div class='col-6 mt-3'>
+<label class="fs-6 mb-2"> Ending Period*</label>
+<div class="mb-3 input-group">
+<label class='input-group-text'><i class="bi bi-calendar fg"></i></label>
+<input class='form-control' type="date" name="ep" required="">
+</div>
+</div>
+
+<div class='col-12 mt-3'>
+<label class="fs-6 mb-2"> Responsibility* </label>
+<textarea class='form-control  mb-3' rows="5" name="resp" maxlength="500" required="" id="id_username" placeholder="Write Your Responsibility...">
+</textarea>
+<button class= " btn  btn-secondary bg py-2 px-4 m-2 text-white "> Update Change</button>
+</div>
+
+
+</div>
+</form>
+</div>
+
+<div class='col-5 mt-3'>
+{% for d in data  %}
+<div class='alert alert-light border'>
+<p class='text-capitalize'> {{d.role}}  </p>
+<p class='text-capitalize'> {{d.company_name}}  </p>
+<p> Period : {{d.start_date}} - {{d.end_date}}  </p>
+<p class='text-capitalize'> {{d.responsibility  | safe}} </p>
+<a href="#"><i class='bi bi-trash text-danger'></i></a> Delete
+
+
+</div>
+{% endfor %}
+</div>
+</div>
+
+
+</div>
+
+
+
+
+{% endblock %}  

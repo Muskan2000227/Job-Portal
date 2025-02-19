@@ -1,0 +1,35 @@
+{% extends 'mainpage.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Search Results</h2>
+
+    {% if jobs %}
+        <div class="row">
+            {% for job in jobs %}
+                <div class="col-md-4">
+                    <div class="card shadow-lg mb-5">
+                        <div class="card-body mb-4">
+                            <h5 class="card-title">
+                                <a href="{% url 'jobresshow' job.id %}" class="text-decoration-none">{{ job.title }}</a>
+                            </h5>
+                            
+                            <p class="card-text"><strong>Category:</strong> {{ job.category }}</p>
+                            <p class="card-text"><strong>Salary:</strong> {{ job.budget_salary }}</p>
+                            <p class="card-text"><strong>Location:</strong> {{ job.location }}</p>
+                            <p class="card-text"><strong>Deadline:</strong> {{ job.deadline }}</p>
+                            <!-- <a href="#" class="btn btn-primary">Apply Now</a> -->
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-danger text-center">
+            <h4>No jobs found matching your search criteria.</h4>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

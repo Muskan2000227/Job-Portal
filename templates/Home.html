@@ -1,0 +1,50 @@
+{% extends 'mainpage.html' %}
+{% block content %}
+{% load static %}
+
+<div class='homebanner mb-4 text-dark'>
+    <div class='banner py-5'>
+        <div class='container'>
+            <h1 class='text-center my-5'> 
+                Find Your <span class='text-dark'>Dream Job</span> <br> 
+                Based On Your <span class='text-dark'>Skills</span> 
+            </h1>
+
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-8">
+                    <form method="GET" action="{% url 'job_search' %}">
+                        <div class='input-group'>
+
+                            <!-- Category Dropdown -->
+                            <span class='input-group-text'><i class="bi bi-briefcase"></i></span>
+                            <select class='form-control' name="cat">
+                                <option value="">Select Category</option>
+                                {% for cat in categories %}
+                                    <option value="{{ cat }}" >
+                                        {{ cat }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+
+                            <!-- Location Dropdown -->
+                            <span class='input-group-text'><i class="bi bi-geo-alt-fill"></i></span>
+                            <select class='form-control' name="ct">
+                                <option value="">Select Location</option>
+                                {% for loc in locations %}
+                                    <option value="{{ loc }}" >
+                                        {{ loc }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+
+                            <!-- Search Button -->
+                            <button class="btn btn-secondary" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'afterlogin.html' %}
+{% block content %}
+{% load static %}
+<div class='container py-5 mb-4'>
+<h4> Educational Qualification:</h4>
+<div class='row'>
+<div class='col-7 mt-3'>
+
+<form method="post">
+{% csrf_token %} 
+<div class='row justify-content-center'>
+
+
+
+<div class='col-12 mt-3'>
+<label class="fs-6 "> Degree Name*</label>
+<div class="mb-3 input-group">
+<label class='input-group-text'><i class="bi bi-window-plus fg"></i></label>
+<input class='form-control' type="text" name="mj" required="" placeholder=' 12th, Bachelor of Computer Application, Bachelor of commerce'>
+</div>
+</div>
+
+<div class='col-12 mt-3'>
+<label class="fs-6 "> Institute/University*</label>
+<div class="mb-3 input-group">
+<label class='input-group-text'><i class="bi bi-building fg "></i></label>
+<input class='form-control' type="text" name="inst"  required="" placeholder="Type Your Institute Name...">
+</div>
+</div>
+<div class='col-6 mt-3'>
+<label class="fs-6 "> Education Level*</label>
+<div class="mb-3 input-group">
+<label class='input-group-text'><i class="bi bi-mortarboard fg"></i></label>
+<select class='form-control' type="text" name="el" required="">
+<option> Graduation </option>
+<option> Under Graduation </option>
+<option> Post Graduation  </option>
+<option> Under Post Graduation  </option>
+<option> PG Diploma </option>
+</select>
+</div>
+</div>
+<div class='col-6 mt-3'>
+<label class="fs-6 "> Result/GPA*</label>
+<div class="mb-3 input-group">
+<label class='input-group-text'><i class="bi bi-percent fg "></i></label>
+<input class='form-control' type="text" name="rst"  required="">
+</div>
+</div>
+
+<div class='col-6 mt-3'>
+<label class="fs-6 "> Starting Period*</label>
+<div class="mb-3 input-group">
+<label class='input-group-text'><i class="bi bi-calendar fg"></i></label>
+<input class='form-control' type="date" name="sp" required="" >
+</div>
+</div>
+
+<div class='col-6 mt-3'>
+<label class="fs-6 "> Ending Period*</label>
+<div class="mb-3 input-group">
+<label class='input-group-text'><i class="bi bi-calendar fg"></i></label>
+<input class='form-control' type="date" name="ep" required="">
+</div>
+</div>
+
+<div class='col-12 mt-3'>
+<button class= " btn  btn-secondary bg py-2 px-4 text-white "> Update Change</button>
+</div>
+
+</div>
+</form>
+</div>
+<div class='col-5 mt-3'>
+{% for d in data  %}
+<div class='alert alert-light border'>
+<p class='text-capitalize'> {{d.title}} ({{d.result}}) </p>
+<p class='text-capitalize'> {{d.stream}}  </p>
+<p class='text-capitalize'> {{d.college}} </p>
+<p> Period : ({{d.startingperiod}} - {{d.endingperiod}} ) </p>
+<a href="#"><i class='bi bi-trash text-danger'></i></a> Delete
+
+
+</div>
+{% endfor %}
+</div>
+</div>
+
+
+</div>
+
+{% endblock %}  

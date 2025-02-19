@@ -1,0 +1,28 @@
+{% extends 'afterlogin.html' %}
+{% block content %}
+{% load static %}
+
+<div class='container py-5 mb-4'>
+    <form method="post" enctype='multipart/form-data'>
+        <div class="row">
+            <div class="col-5">
+                {% csrf_token %}
+                <input type="file" name="resume" required>
+            </div>
+            <div class="col-2">
+                <button type="submit" class='btn btn-secondary w-100'>Upload Resume</button>
+            </div>
+        </div>
+    </form>
+
+    <hr>
+
+    {% if data %}
+        {% for resume in data %}
+            <iframe src="\media\{{ resume.resume }}" height="600" width="100%"></iframe>
+        {% endfor %}
+    {% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'afterlogin.html' %}
+{% block content %}
+{% load static %}
+<div class='container py-5 mb-4'>
+<h3> Your Skills:</h3>
+<div class='row'>
+
+<div class='col-5 mt-4'>
+<form method="post">
+{% csrf_token %}
+
+<label class="fs-6 mb-2"> Add Skills*</label><br>
+<div class="mb-3 input-group">
+<label class='input-group'></label>
+<input class='form-control' type="text" name="skill" maxlength="150" required="" >
+</div>
+<button class= " btn  btn-secondary bg py-2 px-4 m-2 text-white " type="submit"> Add Skills </button>
+</form>
+</div>
+<div class='col-5 mt-4'>
+<label class="fs-6 mb-2"> Added Skills*</label><br>
+
+<table class='table table-striped'>
+<tr> <th> Skill </th><th> Remove </th></tr>
+{% for d in data %}
+<tr>
+<td> {{d.skills}}</td>
+<td> <a href="#"><i class='bi bi-trash text-danger'></i></a></td>
+</tr>
+{% endfor %}
+</table>
+</div>
+
+</div>
+
+
+</div>
+
+
+{% endblock %}  

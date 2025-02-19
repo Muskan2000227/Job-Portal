@@ -1,0 +1,22 @@
+{% extends 'afterlogin.html' %}
+{% block content %}
+{% load static %}
+
+
+<h2>All Job Listings</h2>
+
+{% for job in jobs %}
+    <div class="job-card">
+        <h3>{{ job.title }}</h3>
+        <p>Company: {{ job.employeer.profile.company_name }}</p>
+        <p>Location: {{ job.employeer.profile.address }}</p>
+        <a href="{% url 'alljobsdetails' job.id %}">View Details</a>
+    </div>
+{% empty %}
+    <p>No jobs available.</p>
+{% endfor %}
+
+
+
+
+{% endblock %}
