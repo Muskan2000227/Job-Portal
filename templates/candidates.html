@@ -1,0 +1,26 @@
+{% extends 'afterlogine.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applied Candidates</title>
+</head>
+<body>
+    <h2>Applied Candidates</h2>
+
+    {% for application in applied_jobs %}
+        <h3>Job: {{ application.job.title }}</h3>
+        <p><strong>Candidate Name:</strong> {{ application.seeker.username }}</p>
+        <p><strong>Email:</strong> {{ application.seeker.email }}</p>
+        <p><strong>Status:</strong> {{ application.status }}</p>
+        <hr>
+    {% empty %}
+        <p>No candidates have applied for your jobs yet.</p>
+    {% endfor %}
+</body>
+</html>
+
+{% endblock %}

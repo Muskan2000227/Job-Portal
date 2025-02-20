@@ -1,3 +1,6 @@
+{% extends 'afterlogin.html' %}
+{% block content %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +9,37 @@
     <title>Document</title>
 </head>
 <body>
-    Applied
+    
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Applied Jobs</h2>
+
+    {% if data %}
+        <div class="row">
+            {% for job in data %}
+                <div class="col-md-6">
+                    <div class="card mb-3 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ job.job.title }}</h5>
+                            <p class="card-text">
+                                <strong>Company:</strong> {{ job.job.company }}<br>
+                                <strong>Location:</strong> {{ job.job.location }}<br>
+                                <strong>Posted On:</strong> {{ job.job.posted_date }}
+                            </p>
+                           
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info text-center">
+            <strong>No saved jobs found.</strong> Start applying jobs to view them here!
+        </div>
+    {% endif %}
+</div>
+
+
 </body>
 </html>
+{% endblock %}
+

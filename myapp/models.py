@@ -80,3 +80,23 @@ class Saved(models.Model):
     def __str__(self):
         return f'{self.job}'              
    
+# for resume
+
+
+from ckeditor.fields import RichTextField
+
+class ResumeBuilder(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20)
+    summary = models.TextField(blank=True, null=True)
+    skills = models.TextField(blank=True, null=True)
+    experience = models.TextField(blank=True, null=True)
+    education = models.TextField(blank=True, null=True)
+    projects = models.TextField(blank=True, null=True)  # Rich text field for projects
+    certifications=models.TextField(blank=True, null=True) 
+
+    def __str__(self):
+        return self.name
+
+   

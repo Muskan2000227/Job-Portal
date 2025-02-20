@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\begin{document}
+
+\begin{center}
+    {\Huge \textbf{ {{ resume.name }} }} \\
+    {\large {{ resume.email }} | {{ resume.phone }} }
+\end{center}
+
+\section*{Skills}
+\begin{itemize}
+    {% for skill in skills_list %}
+        \item {{ skill.strip }}
+    {% endfor %}
+\end{itemize}
+
+\section*{Experience}
+{{ resume.experience }}
+
+\section*{Education}
+{{ resume.education }}
+
+\end{document}

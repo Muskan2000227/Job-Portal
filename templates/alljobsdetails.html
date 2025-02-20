@@ -20,8 +20,12 @@
     <input type="hidden" name="job_id" value="{{ job.id }}">
     <button type="submit" class="btn btn-secondary bg w-75 btn-sm text-white">Save Job</button>
 </form>
-  <a href="{%url 'login_user'%}"> <button class="btn btn-secondary bg w-75 btn-sm text-white">Apply Jobs</button></a> 
 
+  <form method="post" action="{% url 'appliedjobs' %}">
+    {% csrf_token %}
+    <input type="hidden" name="job_id" value="{{ job.id }}">
+    <button type="submit" class="btn btn-secondary bg w-75 btn-sm text-white">Apply Job</button>
+</form>
 
 
 

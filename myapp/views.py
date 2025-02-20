@@ -273,6 +273,9 @@ def resume(request):
     return render(request, 'resume.html', {'data': data,'resume':resume})
 
 
+from django.shortcuts import render, redirect
+from .models import Saved, Jobs, register_user
+
 def savedjobs(request):
     email = request.session.get('user_email')   
     user_instance = register_user.objects.get(email=email)  # Fetch user instance
@@ -281,10 +284,13 @@ def savedjobs(request):
 
     if job_id:
         job_instance = Jobs.objects.get(id=job_id)  # Fetch the job
-        Saved.objects.create(seeker=user_instance, job=job_instance, status='Save')  # Save with job
+        # Check if the job is already saved before creating a new entry
+        if not Saved.objects.filter(seeker=user_instance, job=job_instance, status='Save').exists():
+            Saved.objects.create(seeker=user_instance, job=job_instance, status='Save')
+
+        return redirect('savedjobs')  # Redirect to prevent form resubmission
 
     data = Saved.objects.filter(seeker=user_instance, status='Save')  # Fetch saved jobs
-
     return render(request, 'savedjobs.html', {'data': data})
 
 
@@ -292,9 +298,28 @@ def savedjobs(request):
 
 
 
+
+from django.shortcuts import render, redirect
+from .models import Saved, Jobs, register_user
+
 def appliedjobs(request):
-    data=Saved.objects.filter(seeker=request.user,status='Apply')
-    return render(request, 'appliedjobs.html',{'data':data})
+    email = request.session.get('user_email')   
+    user_instance = register_user.objects.get(email=email)  # Fetch user instance
+
+    job_id = request.POST.get('job_id')  # Get job ID from POST request
+
+    if job_id:
+        job_instance = Jobs.objects.get(id=job_id)  # Fetch the job
+        # Check if the job is already saved before creating a new entry
+        if not Saved.objects.filter(seeker=user_instance, job=job_instance, status='Apply').exists():
+            Saved.objects.create(seeker=user_instance, job=job_instance, status='Apply')
+
+        return redirect('appliedjobs')  # Redirect to prevent form resubmission
+
+    data = Saved.objects.filter(seeker=user_instance, status='Apply')  # Fetch saved jobs
+    return render(request, 'appliedjobs.html', {'data': data})
+
+    
    
 
 from django.shortcuts import render, get_object_or_404
@@ -310,4 +335,74 @@ def alljobs(request):
 def alljobsdetails(request, job_id):
     job = get_object_or_404(Jobs, id=job_id)  # Fetch the job by ID
     return render(request, 'alljobsdetails.html', {'job': job})
+
+
+# def candidates(request):
+#     email = request.session.get('user_email')  # Get employer's email from session
+#     jobs_posted = Jobs.objects.filter(employer=email)  # Get jobs posted by this employer
+    
+#     # Fetch applications related to these jobs
+#     applied_jobs = Saved.objects.filter(job__in=jobs_posted, status="Apply").select_related('seeker', 'job')
+
+#     return render(request, 'candidates.html', {'applied_jobs': applied_jobs})
+
+from django.shortcuts import render
+from .models import Saved, Jobs, register_emp, register_user  # Import employer model
+
+def candidates(request):
+    email = request.session.get('user_email')  # Get logged-in employer's email
+
+    if not email:
+        return render(request, 'candidates.html', {'applied_jobs': [], 'error': 'Employer not logged in'})
+
+    # Fetch the employer's username using email
+    try:
+        employer_instance = register_emp.objects.get(email=email)
+        employer_username = employer_instance.username  # Get the employer's username
+    except register_emp.DoesNotExist:
+        return render(request, 'candidates.html', {'applied_jobs': [], 'error': 'Employer not found'})
+
+    # Get jobs posted by the employer
+    jobs_posted = Jobs.objects.filter(employer=employer_username)
+
+    # Fetch candidates who applied for these jobs
+    applied_jobs = Saved.objects.filter(job__in=jobs_posted, status="Apply").select_related('seeker', 'job')
+
+    return render(request, 'candidates.html', {'applied_jobs': applied_jobs})
+
+
+
+from django.shortcuts import render, redirect
+from .models import ResumeBuilder
+
+def resume_form(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        summary = request.POST['summary']
+        skills = request.POST['skills']
+        experience = request.POST['experience']
+        education = request.POST['education']
+        projects = request.POST['projects']
+        certifications = request.POST['certifications']
+
+        resume = ResumeBuilder.objects.create(
+            name=name, email=email, phone=phone,
+            summary=summary, skills=skills,
+            experience=experience, education=education,
+            projects=projects, certifications=certifications
+        )
+        return redirect('resume_preview', resume_id=resume.id)
+
+    return render(request, 'resume_form.html')
+
+def resume_preview(request, resume_id):
+    resume = ResumeBuilder.objects.get(id=resume_id)
+    skills_list = resume.skills.split(',')  # Pre-process skills
+    return render(request, 'resume_preview.html', {'resume': resume, 'skills_list': skills_list})
+
+
+
+
 

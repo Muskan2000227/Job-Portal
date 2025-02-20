@@ -23,7 +23,7 @@ from myapp import views
 urlpatterns = [
     path("admin/", admin.site.urls),
 
-    path("", views.mainpage, name="mainpage"),
+    path("mainpage", views.mainpage, name="mainpage"),
     # Candidate
     path("signup_user", views.signup_user,name="signup_user"),
     path("login_user", views.login_user,name="login_user"),
@@ -36,7 +36,7 @@ urlpatterns = [
     path("afterlogine", views.afterlogine,name="afterlogine"),
     path('logout_emp',views.logout_emp,name='logout_emp'),
 
-    path('Home',views.Home,name='Home'),
+    path('',views.Home,name='Home'),
     path('search/', views.job_search, name='job_search'),
     path('companyprf', views.companyprf, name='companyprf'),
     path('editcompprf', views.editcompprf, name='editcompprf'),
@@ -52,7 +52,10 @@ urlpatterns = [
     path('jobsresshow/<int:job_id>/',views.jobresshow,name='jobresshow'),
     path('alljobs',views.alljobs,name="alljobs"),
     path('alljobsdetails/<int:job_id>/',views.alljobsdetails,name='alljobsdetails'),
+    path('candidates',views.candidates,name='candidates'),
 
+    path('resumeform', views.resume_form, name='resume_form'),
+    path('resume/<int:resume_id>/', views.resume_preview, name='resume_preview'),
     
 ]
 
