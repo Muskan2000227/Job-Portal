@@ -372,37 +372,7 @@ def candidates(request):
 
 
 
-from django.shortcuts import render, redirect
-from .models import ResumeBuilder
-
-def resume_form(request):
-    if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        phone = request.POST['phone']
-        summary = request.POST['summary']
-        skills = request.POST['skills']
-        experience = request.POST['experience']
-        education = request.POST['education']
-        projects = request.POST['projects']
-        certifications = request.POST['certifications']
-
-        resume = ResumeBuilder.objects.create(
-            name=name, email=email, phone=phone,
-            summary=summary, skills=skills,
-            experience=experience, education=education,
-            projects=projects, certifications=certifications
-        )
-        return redirect('resume_preview', resume_id=resume.id)
-
-    return render(request, 'resume_form.html')
-
-def resume_preview(request, resume_id):
-    resume = ResumeBuilder.objects.get(id=resume_id)
-    skills_list = resume.skills.split(',')  # Pre-process skills
-    return render(request, 'resume_preview.html', {'resume': resume, 'skills_list': skills_list})
-
-
-
+def resume(request):
+    return render(request,'resume.html')
 
 
