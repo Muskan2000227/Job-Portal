@@ -11,7 +11,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- custom css -->
-        <link rel="stylesheet" href="static/assets/css/main.css">
+        <link rel="stylesheet" href="static/assets/css/main2.css">
     </head>
     <body>
         <div class = "cv-form-row-title">
@@ -265,11 +265,11 @@
                                                 <span class="form-text"></span>
                                             </div>
                                             
-                                            <button data-repeater-delete type = "button" class = "repeater-remove-btn">-</button>
+                                            <!-- <button data-repeater-delete type = "button" class = "repeater-remove-btn">-</button> -->
                                         </div>
                                     </div>
                                 </div>
-                                <button type = "button" data-repeater-create value = "Add" class = "repeater-add-btn">+</button>
+                                <!-- <button type = "button" data-repeater-create value = "Add" class = "repeater-add-btn">+</button> -->
                             </div>
                         </div>
                     </form>
@@ -277,7 +277,7 @@
             </div>
         </section>
 
-        <section id = "preview-sc" class = "print_area">
+        <!-- <section id = "preview-sc" class = "print_area">
             <div class = "container">
                 <div class = "preview-cnt">
                     <div class = "preview-cnt-l bg-green text-white">
@@ -295,7 +295,7 @@
 
                         <div class = "preview-blk">
                             <div class = "preview-blk-title">
-                                <h3>about</h3>
+                                <h3 style="color:white;">about</h3>
                             </div>
                             <div class = "preview-blk-list">
                                 <div class = "preview-item">
@@ -315,10 +315,10 @@
 
                         <div class = "preview-blk">
                             <div class = "preview-blk-title">
-                                <h3>skills</h3>
+                                <h3 style="color:white;">skills</h3>
                             </div>
                             <div class = "skills-items preview-blk-list" id = "skills_dsp">
-                                <!-- skills list here -->
+                              
                             </div>
                         </div>
                     </div>
@@ -354,8 +354,66 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
+        <section id="resume-preview" class="print_area">
+            <div class="container">
+                <!-- Header Section -->
+                <div class="header text-center">
+                    <div class="preview-image">
+                        <img src="" alt="Profile Image" id="image_dsp">
+                    </div>
+                    <h2 id="fullname_dsp"></h2>
+                    <h4 id="designation_dsp" class="text-uppercase"></h4>
+                </div>
+                <div style="display: flex;align-items: center;justify-content: center;margin-top: -15px;">
+                <p style="display: flex;gap:10px"><img src="https://img.icons8.com/?size=100&id=9730&format=png" alt="" style="width:20px"><span id="phoneno_dsp" style="margin-right: 50px;"></span></p>
+                    <p style="display: flex;gap:10px"><img src="https://img.icons8.com/?size=48&id=86875&format=png" alt="" style="width:20px"><span id="email_dsp" style="margin-right: 50px;"></span>  </p>
+                    <p style="display: flex;gap:10px"><img src="https://img.icons8.com/?size=48&id=86397&format=png" alt="" style="width:20px"><span id="address_dsp" style="margin-right: 50px;"></span>  </p>   
+                    <!-- <strong>Address:</strong> <span id="address_dsp"></span> -->
+                </p>
+            </div>
+        
+                <!-- Summary/About Me -->
+                <div class="summary">
+                    <h3>About Me</h3>
+                    <p id="summary_dsp"></p>
+                </div>
+        
+                <!-- Skills -->
+                <div class="skills">
+                    <h3>Skills</h3>
+                    <div id="skills_dsp"></div>
+                </div>
+        
+                <!-- Education -->
+                <div class="education">
+                    <h3>Education</h3>
+                    <div id="educations_dsp"></div>
+                </div>
+        
+                <!-- Experience -->
+                <div class="experience">
+                    <h3>Experience</h3>
+                    <div class = "experiences-items preview-blk-list" id="experiences_dsp"></div>
+                </div>
+        
+                <!-- Projects -->
+                <div class="projects">
+                    <h3>Projects</h3>
+                    <div id="projects_dsp"></div>
+                </div>
+        
+                <!-- Achievements -->
+                <div class="achievements">
+                    <h3>Achievements</h3>
+                    <div id="achievements_dsp"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Print Button -->
+        
         <section class = "print-btn-sc">
             <div class = "container">
                 <button type = "button" class = "print-btn btn btn-primary" onclick="printCV()">Print CV</button>
@@ -374,6 +432,25 @@
         <!-- app js -->
         <script src="static/assets/js/app.js"></script>
     </body>
+
+    <script>
+        function generateEducation() {
+    let school = document.querySelector(".edu_school").value;
+    let degree = document.querySelector(".edu_degree").value;
+    let startDate = document.querySelector(".edu_start_date").value;
+    let endDate = document.querySelector(".edu_end_date").value;
+
+    if (school && degree) {
+        document.getElementById("educations_dsp").innerHTML = `
+            <div class="education-item">
+                <strong>${degree}</strong> at ${school} <br>
+                ${startDate} - ${endDate}
+            </div>
+        `;
+    }
+}
+
+    </script>
 </html>
 
 {% endblock %}

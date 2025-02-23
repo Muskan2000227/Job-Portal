@@ -53,7 +53,8 @@ urlpatterns = [
     path('alljobs',views.alljobs,name="alljobs"),
     path('alljobsdetails/<int:job_id>/',views.alljobsdetails,name='alljobsdetails'),
     path('candidates',views.candidates,name='candidates'),
-    path('resume',views.resume,name="resume")
+    path('resume',views.resume,name="resume"),
+    path('resume2',views.resume2,name="resume2"),
     
 ]
 

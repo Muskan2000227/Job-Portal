@@ -375,4 +375,5 @@ def candidates(request):
 def resume(request):
     return render(request,'resume.html')
 
-
+def resume2(request):
+    return render(request,'resume2.html')
