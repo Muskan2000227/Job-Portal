@@ -375,5 +375,15 @@ def candidates(request):
 def resume(request):
     return render(request,'resume.html')
 
+def resume1(request):
+    return render(request,'resume1.html')
+
 def resume2(request):
     return render(request,'resume2.html')
+
+def resume3(request):
+    return render(request,'resume3.html')
+
+
+def allresumes(request):
+    return render(request,'allresumes.html')

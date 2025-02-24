@@ -11,9 +11,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- custom css -->
-        <link rel="stylesheet" href="static/assets/css/main2.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
+        <link rel="stylesheet" href="static/assets/css/main3.css">
     </head>
     <body>
         <div class = "cv-form-row-title">
@@ -47,10 +45,7 @@
                                 </div>
 
                                 <div class="cols-3">
-                                    <div class = "form-elem">
-                                        <label for = "" class = "form-label">Your Image</label>
-                                        <input name = "image" type = "file" class = "form-control image" id = "" accept = "image/*" onchange="previewImage()">
-                                    </div>
+                                   
                                     <div class = "form-elem">
                                         <label for = "" class = "form-label">Designation</label>
                                         <input name = "designation" type = "text" class = "form-control designation" id = "" onkeyup="generateCV()" placeholder="e.g. Sr.Accountants">
@@ -61,14 +56,15 @@
                                         <input name = "address" type = "text" class = "form-control address" id = "" onkeyup="generateCV()" placeholder="e.g. Lake Street-23">
                                         <span class="form-text"></span>
                                     </div>
-                                </div>
-
-                                <div class = "cols-3">
                                     <div class = "form-elem">
                                         <label for = "" class = "form-label">Email</label>
                                         <input name = "email" type = "text" class = "form-control email" id = "" onkeyup="generateCV()" placeholder="e.g. johndoe@gmail.com">
                                         <span class="form-text"></span>
                                     </div>
+                                </div>
+
+                                <div class = "cols-3">
+                                    
                                     <div class = "form-elem">
                                         <label for = "" class = "form-label">Phone No:</label>
                                         <input name = "phoneno" type = "text" class = "form-control phoneno" id = "" onkeyup="generateCV()" placeholder="e.g. 456-768-798, 567.654.002">
@@ -112,7 +108,7 @@
                             </div>
                         </div>
 
-                        <div class="cv-form-blk">
+                        <!-- <div class="cv-form-blk">
                             <div class = "cv-form-row-title">
                                 <h3>experience</h3>
                             </div>
@@ -163,7 +159,7 @@
                                 </div>
                                 <button type = "button" data-repeater-create value = "Add" class = "repeater-add-btn">+</button>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="cv-form-blk">
                             <div class = "cv-form-row-title">
@@ -282,63 +278,21 @@
         <section id = "preview-sc" class = "print_area">
             <div class = "container">
                 <div class = "preview-cnt">
-                    <div class = "preview-cnt-l bg-blue text-white" >
+                    <div class = "preview-cnt-l text-white" style="background-color: #68609B;">
                         <div class = "preview-blk">
-                            <div class = "preview-image">
-                                <img src = "" alt = "" id = "image_dsp"> 
-                            </div>
+                           
                             <div class = "preview-item preview-item-name">
-                                <span class = "preview-item-val fw-6" id = "fullname_dsp"></span>
+                                <span class = "preview-item-val fw-8" id = "fullname_dsp" style="font-size: 40px;"></span>
                             </div>
+
                             <div class = "preview-item">
                                 <span class = "preview-item-val text-uppercase fw-6 ls-1" id = "designation_dsp"></span>
                             </div>
-                            <p style="display: flex; align-items: center; justify-content: center; gap: 50px">
-                                <span class="preview-item-val">
-                                    <i class="fas fa-phone-alt"></i> 
-                                    <span id="phoneno_dsp"></span>
-                                </span> 
-                                <span class="preview-item-val">
-                                    <i class="fas fa-envelope"></i> 
-                                    <span id="email_dsp"></span>
-                                </span>
-                                <span class="preview-item-val">
-                                    <i class="fas fa-map-marker-alt"></i> 
-                                    <span id="address_dsp"></span>
-                                </span>  
-                            </p>
-                            
 
-                        </div>
-                    </div>
+                            <div class = "preview-item" style="margin-top: 30px;text-align: left;">
+                                <span class = "preview-item-val" id = "summary_dsp"></span>
+                            </div>
 
-
-                    <div class = "preview-cnt-r bg-white">
-                        <div class = "preview-blk">
-                            <div class = "preview-blk-title">
-                                <h3>about</h3>
-                            </div>
-                            <div class = "preview-blk-list">
-                               
-                                <div class = "preview-item">
-                                    <span class = "preview-item-val" id = "summary_dsp"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class = "preview-blk">
-                            <div class = "preview-blk-title">
-                                <h3>skills</h3>
-                            </div>
-                            <div class = "skills-items preview-blk-list" id = "skills_dsp">
-                                <!-- skills list here -->
-                            </div>
-                        </div>
-                        <div class = "preview-blk">
-                            <div class = "preview-blk-title">
-                                <h3>Achievements</h3>
-                            </div>
-                            <div class = "achievements-items preview-blk-list" id = "achievements_dsp"></div>
                         </div>
 
                         <div class = "preview-blk">
@@ -350,16 +304,61 @@
 
                         <div class = "preview-blk">
                             <div class = "preview-blk-title">
+                                <h3>contact</h3>
+                            </div>
+                            <div class = "preview-blk-list">
+                                <div class = "preview-item">
+                                    
+                                    <span class = "preview-item-val" id = "phoneno_dsp"></span>
+                                </div>
+                                <div class = "preview-item">
+                                   
+                                    <span class = "preview-item-val" id = "email_dsp"></span>
+                                </div>
+                                <div class = "preview-item">
+                                  
+                                    <span class = "preview-item-val" id = "address_dsp"></span>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        
+                    </div>
+
+                    <div class = "preview-cnt-r bg-white">
+                       
+
+                        
+
+                        <!-- <div class = "preview-blk">
+                            <div class = "preview-blk-title">
                                 <h3>experiences</h3>
                             </div>
                             <div class = "experiences-items preview-blk-list" id = "experiences_dsp"></div>
-                        </div>
+                        </div> -->
 
                         <div class = "preview-blk">
                             <div class = "preview-blk-title">
                                 <h3>projects</h3>
                             </div>
                             <div class = "projects-items preview-blk-list" id = "projects_dsp"></div>
+                        </div>
+
+                        <div class = "preview-blk">
+                            <div class = "preview-blk-title">
+                                <h3>Achievements</h3>
+                            </div>
+                            <div class = "achievements-items preview-blk-list" id = "achievements_dsp"></div>
+                        </div>
+
+                        <div class = "preview-blk">
+                            <div class = "preview-blk-title">
+                                <h3>skills</h3>
+                            </div>
+                            <div class = "skills-items preview-blk-list" id = "skills_dsp">
+                                <!-- skills list here -->
+                            </div>
                         </div>
                     </div>
                 </div>

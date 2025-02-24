@@ -374,7 +374,7 @@ textarea{
 .preview-cnt-l{
     /* padding: 3rem 3rem 2rem 0rem; */
     margin-top: -10px;
-    height:250px;
+    height:180px;
 
 }
 .preview-cnt-r{
@@ -384,8 +384,8 @@ textarea{
     text-align: center;
 }
 .preview-image{
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     overflow: hidden;
     margin-right: auto;
@@ -402,7 +402,7 @@ textarea{
     margin: 1.8rem 0;
     position: relative;
 }
-.preview-item-name::after{
+/* .preview-item-name::after{
     position: absolute;
     content: "";
     bottom: -10px;
@@ -411,7 +411,7 @@ textarea{
     background-color: rgba(255, 255, 255, 0.5);
     left: 50%;
     transform: translateX(-50%);
-}
+} */
 .preview-blk{
     padding: 1rem 0;
     margin-bottom: 1rem;
@@ -463,7 +463,7 @@ textarea{
 .experiences-items.preview-blk-list .preview-item span:nth-child(4),
 .experiences-items.preview-blk-list .preview-item span:nth-child(5){
     margin-right: 1rem;
-    background-color: var(--clr-blue-mid);
+    background-color: #32373A;;
     color: var(--clr-white);
     padding: 0 1rem;
     border-radius: 0.6rem;

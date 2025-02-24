@@ -11,7 +11,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- custom css -->
-        <link rel="stylesheet" href="static/assets/css/main2.css">
+        <link rel="stylesheet" href="static/assets/css/main1.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     </head>
@@ -282,31 +282,43 @@
         <section id = "preview-sc" class = "print_area">
             <div class = "container">
                 <div class = "preview-cnt">
-                    <div class = "preview-cnt-l bg-blue text-white" >
+                    <div class = "preview-cnt-l text-white" style="background-color: #32373A;">
                         <div class = "preview-blk">
-                            <div class = "preview-image">
+                            <!-- <div class = "preview-image">
                                 <img src = "" alt = "" id = "image_dsp"> 
-                            </div>
+                            </div> -->
+                            <div style="display: flex;">
+
+                                <div style="margin-left: 200px;">
                             <div class = "preview-item preview-item-name">
                                 <span class = "preview-item-val fw-6" id = "fullname_dsp"></span>
                             </div>
                             <div class = "preview-item">
                                 <span class = "preview-item-val text-uppercase fw-6 ls-1" id = "designation_dsp"></span>
                             </div>
-                            <p style="display: flex; align-items: center; justify-content: center; gap: 50px">
+                            <p style="display: flex;">
+                                <span class="preview-item-val">
+                                    <i class="fas fa-map-marker-alt"></i> 
+                                    <span id="address_dsp"></span>
+                                </span> &nbsp;&nbsp; | &nbsp;&nbsp;
                                 <span class="preview-item-val">
                                     <i class="fas fa-phone-alt"></i> 
                                     <span id="phoneno_dsp"></span>
                                 </span> 
-                                <span class="preview-item-val">
+                                <p class="preview-item-val">
                                     <i class="fas fa-envelope"></i> 
-                                    <span id="email_dsp"></span>
+                                    <span id="email_dsp"></p>
                                 </span>
-                                <span class="preview-item-val">
-                                    <i class="fas fa-map-marker-alt"></i> 
-                                    <span id="address_dsp"></span>
-                                </span>  
+                                
                             </p>
+                        </div>
+
+
+<!-- Image div -->
+                        <div class = "preview-image" style="margin-right: 200px;">
+                            <img src = "" alt = "" id = "image_dsp"> 
+                        </div> 
+                        </div>
                             
 
                         </div>

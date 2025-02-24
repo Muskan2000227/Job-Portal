@@ -131,4 +131,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Media Files (User Uploads)
 MEDIA_URL = '/media/'  # URL to access media files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Directory where media files are stored
+
+
+
+
 X_FRAME_OPTIONS = 'ALLOWALL'

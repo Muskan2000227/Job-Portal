@@ -366,16 +366,13 @@ textarea{
 .preview-cnt{
     border-radius: 5px;
     display: grid;
-    grid-template-columns: 32% auto;
+    grid-template-columns: 40% auto;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     overflow: hidden;
 }
 
 .preview-cnt-l{
-    /* padding: 3rem 3rem 2rem 0rem; */
-    margin-top: -10px;
-    height:250px;
-
+    padding: 3rem 3rem 2rem 3rem;
 }
 .preview-cnt-r{
     padding: 3rem 3rem 3rem 4rem;
@@ -384,8 +381,8 @@ textarea{
     text-align: center;
 }
 .preview-image{
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     overflow: hidden;
     margin-right: auto;
@@ -406,8 +403,8 @@ textarea{
     position: absolute;
     content: "";
     bottom: -10px;
-    width: 50px;
-    height: 1.5px;
+    width:200px;
+    height: 1.1px;
     background-color: rgba(255, 255, 255, 0.5);
     left: 50%;
     transform: translateX(-50%);
@@ -459,11 +456,29 @@ textarea{
 }
 
 .educations-items.preview-blk-list .preview-item span:nth-child(4),
-.educations-items.preview-blk-list .preview-item span:nth-child(5),
+.educations-items.preview-blk-list .preview-item span:nth-child(5)
+{
+    margin-right: 1rem;
+    background-color:white;
+    color:#68609B;
+    padding: 0 1rem;
+    border-radius: 0.6rem;
+}
+
+.experiences-items.preview-blk-list .preview-item span:nth-child(4),
+.experiences-items.preview-blk-list .preview-item span:nth-child(5){
+    margin-right: 0.5rem;
+    background-color:#68609B;
+    color: var(--clr-white);
+    padding: 0 1rem;
+    border-radius: 0.6rem;
+}
+
+
 .experiences-items.preview-blk-list .preview-item span:nth-child(4),
 .experiences-items.preview-blk-list .preview-item span:nth-child(5){
     margin-right: 1rem;
-    background-color: var(--clr-blue-mid);
+    background-color:#68609B;;
     color: var(--clr-white);
     padding: 0 1rem;
     border-radius: 0.6rem;
@@ -478,47 +493,6 @@ textarea{
 }
 .projects-items.preview-blk-list .preview-item span{
     display: block;
-}
-
-/* Make the CV layout single-column */
-.preview-cnt {
-    display: block;
-    width: 100%;
-}
-
-/* Ensure both sections take full width */
-.preview-cnt-l, .preview-cnt-r {
-    width: 100%;
-    padding: 2rem;
-}
-
-/* Center the image */
-.preview-image {
-    margin: 0 auto;
-}
-
-/* Adjust preview items for better spacing */
-.preview-blk {
-    text-align: left;
-}
-
-/* Ensure all sections are aligned properly */
-.preview-blk-title h3 {
-    text-align: left;
-}
-
-/* Add some spacing between blocks */
-.preview-blk-list .preview-item {
-    margin-bottom: 1rem;
-}
-
-/* Ensure skills, achievements, education, and experience have proper spacing */
-.skills-items.preview-blk-list,
-.achievements-items.preview-blk-list,
-.educations-items.preview-blk-list,
-.experiences-items.preview-blk-list,
-.projects-items.preview-blk-list {
-    margin-bottom: 2rem;
 }
 
 @media screen and (min-width: 768px){

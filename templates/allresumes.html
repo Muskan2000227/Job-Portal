@@ -1,0 +1,118 @@
+{% extends 'afterlogin.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+    <div class="grid-container">
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="{% static 'assets/images/dublin-resume-templates.avif' %}" alt="Template 1">
+            <div class="card-content">
+                <h3>Modern Resume</h3>
+                <p>A sleek and professional resume template for modern job applications.</p>
+                <a href="{% url 'resume' %}" class="btn">Try This</a>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="{% static 'assets\images\Screenshot 2025-02-24 001626.png' %}" alt="Template 2">
+            <div class="card-content">
+                <h3>Classic Resume</h3>
+                <p>A traditional resume template suitable for all industries.</p>
+                <a href="{% url 'resume1' %}" class="btn">Try This</a>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="{% static 'assets\images\Screenshot 2025-02-24 001810.png' %}" alt="Template 3">
+            <div class="card-content">
+                <h3>Creative Resume</h3>
+                <p>A creative template with bold design elements for designers.</p>
+                <a href="{% url 'resume2' %}" class="btn">Try This</a>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <img src="{% static  'assets\images\Screenshot 2025-02-24 001933.png' %}" alt="Template 4">
+            <div class="card-content">
+                <h3>Minimal Resume</h3>
+                <p>A minimalist resume with a clean and simple design.</p>
+                <a href="{% url 'resume3' %}" class="btn">Try This</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CSS -->
+<style>
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* 2x2 Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 20px;
+    padding: 10px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+    width: 100%;
+    max-width: 500px; /* Increased width */
+    margin: auto;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 250px; /* Adjust image height */
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card h3 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+</style>
+
+{% endblock %}

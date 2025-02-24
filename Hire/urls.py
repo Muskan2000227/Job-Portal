@@ -55,6 +55,9 @@ urlpatterns = [
     path('candidates',views.candidates,name='candidates'),
     path('resume',views.resume,name="resume"),
     path('resume2',views.resume2,name="resume2"),
+    path('resume1',views.resume1,name="resume1"),
+    path('resume3',views.resume3,name="resume3"),
+    path('allresumes',views.allresumes,name="allresumes")
     
 ]
 
